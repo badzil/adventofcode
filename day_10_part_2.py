@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
+from itertools import islice
+
 
 def tie_knot(numbers, length, position):
     section = (numbers + numbers)[position:position+length]
@@ -26,7 +28,8 @@ def knot_hash(s):
     numbers = list(range(256))
     lengths = [ord(b) for b in s] + [17, 31, 73, 47, 23]
     tie_knots(numbers, lengths)
-    dense_hash = [xor(numbers[idx*16:(idx+1)*16]) for idx in range(16)]
+    dense_hash = [xor(islice(numbers, idx * 16, (idx + 1) * 16))
+                  for idx in range(16)]
     return ''.join(hex(n)[2:].zfill(2) for n in dense_hash)
 
 
