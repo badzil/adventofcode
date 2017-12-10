@@ -34,5 +34,4 @@ if __name__ == '__main__':
     numbers = list(range(256))
     lengths = [int(l) for l in open('day_10_input.txt').read().split(',')]
     tie_knots(numbers, lengths)
-    print(numbers)
     print(numbers[0] * numbers[1])
