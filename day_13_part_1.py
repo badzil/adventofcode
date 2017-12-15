@@ -17,7 +17,7 @@ def get_severity(layers):
     for pos in range(max(layers) + 1):
         if pos not in layers:
             continue
-        scanner_pos = pos % (2 * (layers[pos] -1))
+        scanner_pos = pos % (2 * (layers[pos] - 1))
         if scanner_pos == 0:
             severity += pos * layers[pos]
     return severity
